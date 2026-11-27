@@ -145,53 +145,53 @@ create table _card (
         primary key (id)
     );
 
-    alter table if exists _card
-           add constraint FKcr530o8362nalrhg8d6w3qmcp
+    alter table _card
+           add constraint FK_card_user_id
            foreign key (user_id)
            references _user;
 
-        alter table if exists _hold
-           add constraint FK5n4hwbq8r53s1rombw9s0u2a1
+        alter table _hold
+           add constraint FK_hold_order_id
            foreign key (order_id)
            references _order;
 
-        alter table if exists _hold
-           add constraint FK8n2q5nikxhq8vcy70posya6e6
+        alter table _hold
+           add constraint FK_hold_wallet_id
            foreign key (wallet_id)
            references _wallet;
 
-alter table if exists _order
-       add constraint FK542v8c5uocbxfikapcyq0nl8n
+alter table _order
+       add constraint FK_order_store_id
        foreign key (store_id)
        references _store;
 
-    alter table if exists _order
-       add constraint FKprpwig2d34d265to98qdg694e
+    alter table _order
+       add constraint FK_order_user_id
        foreign key (user_id)
        references _user;
 
-    alter table if exists _order_item
-       add constraint FKcl05xiipwoy93rhp1w5qb3tmf
+    alter table _order_item
+       add constraint FK_order_item_item_id
        foreign key (item_id)
        references _item;
 
-    alter table if exists _order_item
-       add constraint FKkm6x6ueuqv4kgtiluwv49003v
+    alter table _order_item
+       add constraint FK_order_item_order_id
        foreign key (order_id)
        references _order;
 
-alter table if exists _transfer
-       add constraint FKn3ec2s1c6ky128498eqfa6s8r
+alter table _transfer
+       add constraint FK_transfer_from_wallet
        foreign key (from_wallet)
        references _wallet;
 
-    alter table if exists _transfer
-       add constraint FK3gb9afqvlb0lxfub082lk9a68
+    alter table _transfer
+       add constraint FK_transfer_order_id
        foreign key (order_id)
        references _order;
 
-    alter table if exists _transfer
-       add constraint FKdqoi4h8c4idv7jiqoj4hhvko6
+    alter table _transfer
+       add constraint FK_transfer_to_wallet
        foreign key (to_wallet)
        references _wallet;
 
