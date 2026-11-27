@@ -3,6 +3,7 @@ package kz.rontyk.ledger.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
 import lombok.*;
 
 @Getter
@@ -25,11 +26,11 @@ public class Item extends AbstractEntity<Long>{
     private int rating;
 
     @Column(name = "amount", nullable = false)
-    @Min(value = 0)
+    @Positive
     private int amount;
 
     @Column(name = "price", nullable = false)
-    @Min(value = 0)
+    @Positive
     private long price;
 
     @ManyToOne(fetch = FetchType.LAZY)
