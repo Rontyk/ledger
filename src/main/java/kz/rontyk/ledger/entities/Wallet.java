@@ -30,7 +30,7 @@ public class Wallet extends AbstractEntity<Long> {
         return new Wallet(0, WalletType.STORE, null, false, Currency.KZT);
     }
 
-    @Column(name = "balance", nullable = false)
+    @Column(name = "money", nullable = false)
     private long money;
 
     @Column(name = "wallet_type", nullable = false)
